@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "reOVC65xThFctXl9CeLlCdjpFifO3sp5MqIwYv/MegkXfnw6k+j7btYRoBFA3wV43o/o25xnXffksYs/KCv8CA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\timal\\Desktop\\Projet SimpleAPI Projet C#\\Projet_C_API\\SimpleAPI Projet C#.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\timal\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\timal\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
+    "C:\\Users\\timal\\.nuget\\packages\\system.data.sqlite.core\\1.0.118\\system.data.sqlite.core.1.0.118.nupkg.sha512"
+  ],
+  "logs": []
+}
