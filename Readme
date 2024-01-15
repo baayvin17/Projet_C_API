@@ -1,1 +1,13 @@
-Projet_C_API
+## Projet de Gestion d'Inventaire/Stock avec API C# Description du Projet
+
+## Ce projet a été réalisé par Hocine, Terence et Baayvin dans le but de mettre en place une API en C# pour la gestion d'inventaire/stock. 
+
+
+## L'objectif principal était de créer un système complet permettant d'effectuer des opérations CRUD (Create, Read, Update, Delete) pour les articles et les utilisateurs. Le projet couvre également la configuration d'un serveur web pour héberger l'API, la mise en place d'un serveur dédié pour la base de données, ainsi que l'exploration des notions d'asynchronisme et de requêtes HTTP à l'aide de Postman.
+
+
+## Il faut simplement faire "dotnet run " pour lancer l'API, utilisé POSTMAN ## 
+
+        Voir le PDF de la documentation pour plus détail sur le projet ! 
+
+## Lien du Trello : https://trello.com/invite/b/J8FueJYq/ATTI6ff8c3d6d12c1d868787e1c99df544734F7E45B2/projet-cde-gestion-dinventaire
