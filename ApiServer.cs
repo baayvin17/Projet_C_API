@@ -16,6 +16,7 @@ namespace MyApiServer
 
         private const string DatabaseFileName = "ALL-ARTICLES.db";
 
+        // Constructeur de la classe ApiServer
         public ApiServer(string baseUri)
         {
             this.listener = new HttpListener();
@@ -27,6 +28,7 @@ namespace MyApiServer
             InitializeDatabase();
         }
 
+        // Méthode pour initialiser la base de données SQLite
         private void InitializeDatabase()
         {
             try
@@ -41,6 +43,7 @@ namespace MyApiServer
                     {
                         connection.Open();
 
+                        // Crée la table Produits
                         string createTableQuery = "CREATE TABLE Produits (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nom TEXT, Prix DECIMAL, Date TEXT)";
                         using (SQLiteCommand command = new SQLiteCommand(createTableQuery, connection))
                         {
@@ -68,6 +71,7 @@ namespace MyApiServer
             }
         }
 
+        // Méthode pour démarrer le serveur
         public void Start()
         {
             try
@@ -82,6 +86,7 @@ namespace MyApiServer
             }
         }
 
+        // Méthode pour arrêter le serveur
         public void Stop()
         {
             try
@@ -95,6 +100,7 @@ namespace MyApiServer
             }
         }
 
+        // Callback du listener qui gère les requêtes
         private void ListenerCallback(IAsyncResult result)
         {
             try
@@ -204,6 +210,7 @@ namespace MyApiServer
             }
         }
 
+        // Méthode pour écrire la réponse au client
         private void WriteResponse(HttpListenerResponse response, string responseData)
         {
             try
@@ -219,6 +226,7 @@ namespace MyApiServer
             }
         }
 
+        // Méthode pour ajouter un produit
         private void AjouterProduit(string produitData)
         {
             try
@@ -263,8 +271,8 @@ namespace MyApiServer
             }
         }
 
-
-        private void SupprimerProduit(int produitId)
+        // Méthode pour supprimer un produit
+        private static void SupprimerProduit(int produitId)
         {
             try
             {
@@ -288,8 +296,8 @@ namespace MyApiServer
             }
         }
 
-
-        private void SupprimerTousProduitsParId(int utilisateurId)
+        // Méthode pour supprimer un produit a partir de l'ID
+        private static void SupprimerTousProduitsParId(int utilisateurId)
         {
             try
             {
@@ -331,8 +339,8 @@ namespace MyApiServer
 
 
 
-
-        private void MettreAJourProduit(int produitId, string nouveauNom, decimal nouveauPrix, string nouvelleDate)
+        // Méthode pour mettre a jour un produit
+        private static void MettreAJourProduit(int produitId, string nouveauNom, decimal nouveauPrix, string nouvelleDate)
         {
             try
             {
@@ -359,7 +367,8 @@ namespace MyApiServer
             }
         }
 
-        private void SupprimerUtilisateur(int utilisateurId)
+        // Méthode pour supprimer un utilisateur
+        private static void SupprimerUtilisateur(int utilisateurId)
         {
             try
             {
@@ -383,7 +392,9 @@ namespace MyApiServer
             }
         }
 
-        private void MettreAJourUtilisateur(int utilisateurId, string nouveauNom, string nouveauPrenom, string nouvelEmail, string nouveauMotDePasse)
+
+        // Méthode pour mettre a jour un utilisateur
+        private static void MettreAJourUtilisateur(int utilisateurId, string nouveauNom, string nouveauPrenom, string nouvelEmail, string nouveauMotDePasse)
         {
             try
             {
@@ -412,6 +423,7 @@ namespace MyApiServer
         }
 
 
+        // Méthode pour générer un utilisateur aléatoire
         private Utilisateur GenerateRandomUser()
         {
             Random random = new Random();
@@ -431,7 +443,8 @@ namespace MyApiServer
             return randomUser;
         }
 
-        private string GenerateRandomString(int length)
+        // Méthode pour générer une chaîne aléatoire
+        private static string GenerateRandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             Random random = new Random();
@@ -439,6 +452,7 @@ namespace MyApiServer
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        // Méthode pour récupérer la liste des produits
         private string GetProduits()
         {
             StringBuilder gridBuilder = new StringBuilder();
@@ -453,16 +467,14 @@ namespace MyApiServer
 
                     using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
                     {
-                        using (SQLiteDataReader reader = command.ExecuteReader())
-                        {
-                            // Ajouter les en-têtes de colonnes
-                            gridBuilder.AppendLine("Id\tProduit\tPrix\tDate\tUtilisateur\tPrenom\tEmail");
+                        using SQLiteDataReader reader = command.ExecuteReader();
+                        // Ajouter les en-têtes de colonnes
+                        gridBuilder.AppendLine("Id\tProduit\tPrix\tDate\tUtilisateur\tPrenom\tEmail");
 
-                            while (reader.Read())
-                            {
-                                // Ajouter les données de chaque produit et utilisateur à la grille
-                                gridBuilder.AppendLine($"{reader["Id"]}\t{reader["ProduitNom"]}\t{reader["Prix"]}\t{reader["Date"]}\t{reader["UtilisateurNom"]}\t{reader["Prenom"]}\t{reader["Email"]}");
-                            }
+                        while (reader.Read())
+                        {
+                            // Ajouter les données de chaque produit et utilisateur à la grille
+                            gridBuilder.AppendLine($"{reader["Id"]}\t{reader["ProduitNom"]}\t{reader["Prix"]}\t{reader["Date"]}\t{reader["UtilisateurNom"]}\t{reader["Prenom"]}\t{reader["Email"]}");
                         }
                     }
                 }
@@ -476,32 +488,4 @@ namespace MyApiServer
         }
 
     }
-
-
-    // Définition de la classe Produit
-    public class Produit
-    {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public decimal Prix { get; set; }
-        public string Date { get; set; }
-    }
-
-    // Définition de la classe Utilisateur
-    public class Utilisateur
-    {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
-        public string Email { get; set; }
-        public string MotDePasse { get; set; }
-    }
-}
-
-public class ProduitMiseAJourRequest
-{
-    public int ProduitId { get; set; }
-    public string NouveauNom { get; set; }
-    public decimal NouveauPrix { get; set; }
-    public string NouvelleDate { get; set; }
-}
+}    

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SimpleAPI_Projet_C_
-build_property.ProjectDir = C:\Users\timal\Desktop\Projet SimpleAPI Projet C#\Projet_C_API\
+build_property.ProjectDir = C:\Users\timal\Desktop\Projet_C_API\Projet_C_API\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

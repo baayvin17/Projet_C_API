@@ -130,11 +130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timal\\Desktop\\Projet SimpleAPI Projet C#\\Projet_C_API\\SimpleAPI Projet C#.csproj",
+      "projectUniqueName": "C:\\Users\\timal\\Desktop\\Projet_C_API\\Projet_C_API\\SimpleAPI Projet C#.csproj",
       "projectName": "SimpleAPI Projet C#",
-      "projectPath": "C:\\Users\\timal\\Desktop\\Projet SimpleAPI Projet C#\\Projet_C_API\\SimpleAPI Projet C#.csproj",
+      "projectPath": "C:\\Users\\timal\\Desktop\\Projet_C_API\\Projet_C_API\\SimpleAPI Projet C#.csproj",
       "packagesPath": "C:\\Users\\timal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timal\\Desktop\\Projet SimpleAPI Projet C#\\Projet_C_API\\obj\\",
+      "outputPath": "C:\\Users\\timal\\Desktop\\Projet_C_API\\Projet_C_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\timal\\AppData\\Roaming\\NuGet\\NuGet.Config",
